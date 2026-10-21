@@ -2,6 +2,22 @@
 
 Adaptive Machine Learning-Assisted Noise Mitigation for BB84 Quantum Key Distribution in Noisy Quantum Channels
 
+**Published paper:** Farzin Bahadori, Charles Ganu, and Stacie Spahr. "Adaptive Machine
+Learning-Based Noise Mitigation for BB84 Quantum Key Distribution Over Noisy Quantum
+Channels." *Journal of Computing Sciences in Colleges*, CCSC Northwestern Regional
+Conference, Whitman College, Walla Walla, WA, October 2026.
+
+[Paper](https://www.ccsc.org/journal/) ·
+[Project page](https://adaptive-machine-learning-bb84.github.io/adaptive-machine-learning/) ·
+[Notebook](notebooks/BB84_Adaptive_QKD.ipynb) ·
+[Cite](#citation)
+
+Saint Martin's University, Hal and Inge Marcus School of Engineering.
+
+**Headline result:** across six simulated test environments, the classifier named the
+channel correctly every time and adaptive circuit selection cut error by at least 99.6%
+relative to a bare qubit, and was never worse than the evaluated fixed strategy.
+
 ## Abstract
 
 Quantum Key Distribution (QKD) offers a fundamentally secure method for cryptographic key exchange using the principles of quantum mechanics. Among existing protocols, BB84 remains one of the most widely studied. However, its performance is degraded by quantum-channel and measurement noise, which raises the Quantum Bit Error Rate (QBER) and reduces key-generation reliability.
@@ -193,3 +209,16 @@ Fixed random seeds are used where appropriate so simulation and ML results repro
 - ML classification accuracy is intentionally not the sole objective — the emphasis is on driving a genuine mitigation-selection loop and on studying circuit-level noise resistance.
 - The advanced circuit search is a comparative simulation study; its findings motivate, but do not by themselves prove, real-world QKD performance.
 
+## Citation
+
+```bibtex
+@article{bahadori2026adaptive,
+  author  = {Bahadori, Farzin and Ganu, Charles and Spahr, Stacie},
+  title   = {Adaptive Machine Learning-Based Noise Mitigation for {BB84}
+             Quantum Key Distribution Over Noisy Quantum Channels},
+  journal = {Journal of Computing Sciences in Colleges},
+  note    = {CCSC Northwestern Regional Conference, Whitman College,
+             Walla Walla, WA, October 2026},
+  year    = {2026}
+}
+```

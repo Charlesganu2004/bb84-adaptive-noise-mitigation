@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adaptive ML Noise Mitigation for BB84 QKD</title>
+<meta name="description" content="Adaptive machine-learning noise mitigation for BB84 quantum key distribution. Bahadori, Ganu and Spahr, CCSC Northwestern 2026.">
+<meta property="og:title" content="Adaptive Machine Learning-Based Noise Mitigation for BB84 QKD">
+<meta property="og:description" content="A classifier reads cheap channel statistics, picks one of 100 evaluated mitigation circuits, and cuts error by at least 99.6% against a bare qubit in every tested environment.">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --page: #fbfbfa; --surface: #ffffff; --ink: #1b1d1f; --muted: #5d636a;
+    --rule: #e3e5e8; --accent: #0b6e6e; --accent-ink: #ffffff; --code: #f2f3f4;
+    --radius: 6px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --page: #121416; --surface: #1a1d20; --ink: #e8eaec; --muted: #a2a9b1;
+      --rule: #2c3136; --accent: #4fc1c1; --accent-ink: #0d1517; --code: #20252a;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--page); color: var(--ink);
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 780px; margin: 0 auto; padding: 56px 16px 80px; }
+  .venue { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 0 0 12px; }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-weight: 600; font-size: clamp(28px, 5vw, 40px); line-height: 1.2; margin: 0 0 20px; letter-spacing: -.01em; }
+  .authors { margin: 0; font-size: 18px; }
+  .affil { margin: 4px 0 28px; color: var(--muted); font-size: 15px; }
+  .links { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 48px; padding: 0; list-style: none; }
+  .links a {
+    display: inline-block; padding: 9px 16px; border-radius: var(--radius); text-decoration: none;
+    font-size: 15px; font-weight: 600; border: 1px solid var(--rule); color: var(--ink); background: var(--surface);
+  }
+  .links a.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .links a:hover { border-color: var(--accent); }
+  .links a:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  h2 { font-family: Georgia, "Times New Roman", serif; font-weight: 600; font-size: 24px; margin: 56px 0 12px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  p { margin: 0 0 16px; }
+  a { color: var(--accent); }
+  .lead { font-size: 19px; }
+  ol.loop { padding-left: 22px; margin: 0 0 16px; }
+  ol.loop li { margin-bottom: 10px; }
+  ol.loop strong { color: var(--accent); }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 16px; }
+  th, td { text-align: left; padding: 10px 12px 10px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  th { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); font-weight: 600; }
+  td.num { font-variant-numeric: tabular-nums; font-weight: 600; width: 40%; }
+  @media (max-width: 520px) { body { font-size: 16px; } th, td { padding-right: 8px; } }
+  figure { margin: 32px 0; }
+  figure img { width: 100%; height: auto; display: block; background: #fff; border: 1px solid var(--rule); border-radius: var(--radius); }
+  figcaption { font-size: 15px; color: var(--muted); margin-top: 10px; }
+  figcaption b { color: var(--ink); }
+  pre { background: var(--code); border-radius: var(--radius); padding: 16px; overflow-x: auto; font-size: 13.5px; line-height: 1.5; margin: 0 0 16px; }
+  code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+  ul.plain { padding-left: 20px; }
+  footer { margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<main>
+  <p class="venue">CCSC Northwestern Regional Conference 2026 &middot; Journal of Computing Sciences in Colleges</p>
+  <h1>Adaptive Machine Learning-Based Noise Mitigation for BB84 Quantum Key Distribution Over Noisy Quantum Channels</h1>
+  <p class="authors">Farzin Bahadori, Charles Ganu, and Stacie Spahr</p>
+  <p class="affil">Hal and Inge Marcus School of Engineering, Saint Martin's University, Lacey, WA</p>
+
+  <ul class="links">
+    <li><a class="primary" href="https://www.ccsc.org/journal/">Paper</a></li>
+    <li><a href="https://github.com/adaptive-machine-learning-bb84/adaptive-machine-learning">Code</a></li>
+    <li><a href="https://github.com/adaptive-machine-learning-bb84/adaptive-machine-learning/blob/main/notebooks/BB84_Adaptive_QKD.ipynb">Notebook</a></li>
+    <li><a href="#citation">Cite</a></li>
+  </ul>
+
+  <h2 id="abstract">Abstract</h2>
+  <p class="lead">Quantum Key Distribution (QKD) is theoretically secure, but noise can raise the Quantum Bit Error Rate (QBER) and reduce key-generation efficiency. We present an adaptive machine-learning framework for BB84 under simulated bit-flip, phase-flip, and depolarizing noise. Observable channel statistics classify the dominant noise condition and select a mitigation circuit from 100 evaluated designs. Across six test environments, adaptive selection reduced error by at least 99.6% relative to a bare qubit and was never worse than the evaluated fixed strategy. Independent retransmission outperformed several deeper entangled codes in the simulated noise regime, while gate, readout, and preparation noise had greater impact than channel noise. The results motivate noise-aware adaptive mitigation and validation on physical hardware.</p>
+
+  <h2 id="approach">How it works</h2>
+  <p>Standard BB84 only notices noise after the fact, by sacrificing part of the sifted key to estimate QBER. This framework reacts to the channel instead:</p>
+  <ol class="loop">
+    <li><strong>Simulate.</strong> BB84 runs in Qiskit Aer under bit-flip, phase-flip and depolarizing noise at a range of strengths, with an optional intercept-resend eavesdropper.</li>
+    <li><strong>Classify.</strong> A Random Forest reads session statistics (overall and basis-specific QBER, sifted-key rate, directional bias) and names the dominant noise condition.</li>
+    <li><strong>Select.</strong> The prediction picks a mitigation circuit from a search over 100 designs, scored by worst-case error and circuit depth.</li>
+    <li><strong>Mitigate and measure.</strong> The chosen circuit protects the transmission, and the framework compares error before and after.</li>
+  </ol>
+
+  <h2 id="results">Results</h2>
+  <table>
+    <thead><tr><th>Finding</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>Adaptive selection, six test environments (three noise types at strengths 0.08 and 0.14)</td><td class="num">&ge; 99.6% less error than a bare qubit</td></tr>
+      <tr><td>Channel prediction in those six environments</td><td class="num">6 of 6 correct</td></tr>
+      <tr><td>Adaptive selection against the evaluated fixed strategy</td><td class="num">never worse</td></tr>
+      <tr><td>Noise classifier, 1,000 sessions, five-fold cross-validation</td><td class="num">0.83 &plusmn; 0.02 accuracy</td></tr>
+      <tr><td>Noise classifier, held-out 25% split</td><td class="num">0.82 accuracy</td></tr>
+      <tr><td>Mitigation circuits searched</td><td class="num">100</td></tr>
+    </tbody>
+  </table>
+  <p>Two results ran against intuition. Independent retransmission beat several deeper entangled codes in this noise regime, and noise at the gates, readout and state preparation hurt more than noise in the channel itself. All results hold under the tested simulated environments; physical hardware is future work.</p>
+
+  <figure>
+    <img src="figures/fig-logical-error.png" alt="Line chart: logical error rate falls exponentially as repetition-code distance increases" loading="lazy">
+    <figcaption><b>Figure 1.</b> Logical error falls exponentially as repetition-code distance increases.</figcaption>
+  </figure>
+  <figure>
+    <img src="figures/fig-error-vs-depth.png" alt="Scatter plot of 100 circuits, worst-case error against circuit depth" loading="lazy">
+    <figcaption><b>Figure 2.</b> All 100 circuits plotted by worst-case error against depth; lower and farther left is better.</figcaption>
+  </figure>
+  <figure>
+    <img src="figures/fig-noise-location.png" alt="Bar chart of error by noise location for an entangled circuit" loading="lazy">
+    <figcaption><b>Figure 3.</b> Noise-location sensitivity for an entangled circuit; gate, readout, and preparation noise have greater impact than channel noise.</figcaption>
+  </figure>
+  <figure>
+    <img src="figures/adaptive-mitigation.png" alt="Chart comparing error for a bare qubit, a fixed strategy and adaptive selection" loading="lazy">
+    <figcaption><b>Figure 4.</b> Adaptive circuit selection reduces error relative to a bare qubit and the evaluated fixed strategy.</figcaption>
+  </figure>
+
+  <h2 id="code">Code</h2>
+  <ul class="plain">
+    <li><code>BB84_Adaptive_QKD.py</code>: BB84 simulation, dataset, classifier and the classify, select, mitigate loop</li>
+    <li><code>noise_resistance.py</code>: repetition-code hardening and the ML-selected mitigation study</li>
+    <li><code>three_noise_hardening.py</code>: the 100-circuit search across bit-flip, phase-flip and depolarizing noise</li>
+    <li><code>advanced_circuits.py</code>: a separate search over unusual circuit structures</li>
+    <li><code>notebooks/BB84_Adaptive_QKD.ipynb</code>: every stage, end to end</li>
+  </ul>
+  <p>Setup and run instructions are in the <a href="https://github.com/adaptive-machine-learning-bb84/adaptive-machine-learning#readme">README</a>.</p>
+
+  <h2 id="citation">Citation</h2>
+<pre><code>@article{bahadori2026adaptive,
+  author  = {Bahadori, Farzin and Ganu, Charles and Spahr, Stacie},
+  title   = {Adaptive Machine Learning-Based Noise Mitigation for {BB84}
+             Quantum Key Distribution Over Noisy Quantum Channels},
+  journal = {Journal of Computing Sciences in Colleges},
+  note    = {CCSC Northwestern Regional Conference, Whitman College,
+             Walla Walla, WA, October 2026},
+  year    = {2026}
+}</code></pre>
+
+  <footer>Saint Martin's University &middot; Advisor: Dr. Farzin Bahadori</footer>
+</main>
+</body>
+</html>
