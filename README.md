@@ -1,5 +1,7 @@
 # Adaptive Machine Learning for BB84 Quantum Key Distribution
 
+**Timeline:** June 2026 to October 2026 (paper presented at CCSC Northwestern, Whitman College, October 9 to 10, 2026)
+
 Adaptive Machine Learning-Assisted Noise Mitigation for BB84 Quantum Key Distribution in Noisy Quantum Channels
 
 **Published paper:** Farzin Bahadori, Charles Ganu, and Stacie Spahr. "Adaptive Machine
